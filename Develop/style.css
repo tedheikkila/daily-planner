@@ -3,7 +3,7 @@
 
 /* styles font-family on all body text etc */
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
 }
@@ -72,15 +72,16 @@ textarea {
 
 /* activity save btn for local storage; at far right of each time row */
 .saveBtn {
-  border-left: 1px solid black;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background-color: #06aed5;
+  border-radius: 5px;
+  background-color: black;
   color: white;
+  padding:5px;
 }
 
 /* hover event for save btn (user convenience) */
-.saveBtn i:hover {
+.saveBtn:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
+  background-color: green;
+  cursor: pointer;
 }
