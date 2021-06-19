@@ -17,6 +17,8 @@ $("#currentDay").text(today.format("dddd, MMMM Do YYYY, h:mm a"));
 
 // challenges: changing row bg color based on current time; setting/getting from local storage
 
+// red = past; blue = present; green = future hour
+
 
 
     
