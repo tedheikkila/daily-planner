@@ -1,9 +1,14 @@
+/* custom css for daily planner, TWH, 6-19-21 */
+/* not using reset.css for this app */
+
+/* styles font-family on all body text etc */
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
 }
 
+/* where user enter daily activities */
 textarea {
   background: transparent;
   border: none;
@@ -13,6 +18,7 @@ textarea {
   padding: 10px;
 }
 
+/* area at page top */
 .jumbotron {
   text-align: center;
   background-color: transparent;
@@ -21,42 +27,50 @@ textarea {
   border-bottom: 10px solid black;
 }
 
+/* activity description */
 .description {
   white-space: pre-wrap;
 }
 
+/* square time block at row's left column */
 .time-block {
   text-align: center;
   border-radius: 15px;
 }
 
+/* each row for each hour */
 .row {
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
 }
 
+/* styles hour */
 .hour {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
 }
 
+/* styles past events (grayed out bg) */
 .past {
   background-color: #d3d3d3;
   color: white;
 }
 
+/* present hour (red bg) */
 .present {
   background-color: #ff6961;
   color: white;
 }
 
+/* future hours (green bg) */
 .future {
   background-color: #77dd77;
   color: white;
 }
 
+/* activity save btn for local storage; at far right of each time row */
 .saveBtn {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
@@ -65,6 +79,7 @@ textarea {
   color: white;
 }
 
+/* hover event for save btn (user convenience) */
 .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
