@@ -50,6 +50,8 @@ renderLastEvent()
 function saveEvent(event) {
     event.preventDefault()
 
+    var saveBtnClicked = $(event.target);
+
     var typedEvent = $("input[name='form-input']").val();
 
     console.log(typedEvent)
@@ -59,20 +61,23 @@ function saveEvent(event) {
         return;
       }
 
+      saveBtnClicked.append(typedEvent)
+      
+    //   savedEvent.append(typedEvent)
     
 
     // set input to local storage using "key" as key
     localStorage.setItem("typedEvent", typedEvent);
 
     // print to the page
-    // dailyEvent.append(typedEvent);
+    dailyEvent.append(typedEvent);
 
     renderLastEvent()
 
 }
 
 // event delegation for every save button on form
-saveBtn.on('click', saveEvent);
+dailyEvent.on('click', '.saveBtn', saveEvent);
 
 // get items entered from local storage, so events persist through browser reload events
 $(window).bind('beforeunload',function(){
@@ -89,9 +94,9 @@ function renderLastEvent() {
 
      // prints to the page
      savedEvent.append(renderEvent);
-    
-
 }
+
+
 
 
 
