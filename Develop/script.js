@@ -37,9 +37,16 @@ $("#currentDay").text(today.format("dddd, MMMM Do YYYY, h:mm a"));
 // capturing and saving item to page (also put into local storage)
 var dailyEvent = $('.form-input');
 
+// need an append location for saved events
+var savedEvent = $('.input-group');
+
 // global var saveBtn
 var saveBtn = $('.saveBtn');
+
+// call render function on page refresh
+renderLastEvent()
  
+//saves event to page using local storage and append
 function saveEvent(event) {
     event.preventDefault()
 
@@ -52,23 +59,39 @@ function saveEvent(event) {
         return;
       }
 
-    // need to set to local storage here
     
 
+    // set input to local storage using "key" as key
+    localStorage.setItem("typedEvent", typedEvent);
 
-
-    
     // print to the page
-    dailyEvent.append(typedEvent);
+    // dailyEvent.append(typedEvent);
+
+    renderLastEvent()
 
 }
-
-
 
 // event delegation for every save button on form
 saveBtn.on('click', saveEvent);
 
+// get items entered from local storage, so events persist through browser reload events
+$(window).bind('beforeunload',function(){
 
+    renderLastEvent()
+
+   return 'Are you sure you want to leave?';
+
+});
+
+//get items from local storage
+function renderLastEvent() {
+    var renderEvent= localStorage.getItem("typedEvent");
+
+     // prints to the page
+     savedEvent.append(renderEvent);
+    
+
+}
 
 
 
