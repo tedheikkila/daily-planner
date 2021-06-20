@@ -10,8 +10,7 @@
     var saveBtn = $('.saveBtn');
     // string array for times (to associate with text input)
     var timesString = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"]
-    // military time array (to associate current time and moment.js for changing bg color)
-    var timesNumbers = [9, 10, 11, 12, 13, 14, 15, 16, 17]
+   
 
 // loops through timesString array and attaches custom attribute
 function attachTimes() {
@@ -22,6 +21,7 @@ function attachTimes() {
         dailyEvent.addClass('time-class');
         // Assign the text area to the data-time attribute
         dailyEvent.attr('time-attr', timesString[i]);
+        console.log(timesString.length)
     }
 
 }
@@ -66,9 +66,11 @@ function saveEvent(event) {
 
     // renderLastEvent()
 
+    attachTimes()
+
 }
 
-saveBtn.on('click', saveEvent);
+dailyEvent.on('click', 'saveBtn', saveEvent);
 
 // get items entered from local storage, so events persist through browser reload events
 // $(window).bind('beforeunload',function(){
@@ -86,8 +88,6 @@ function renderLastEvent() {
     // if (savedEvent===null) {
     var renderSaved = localStorage.getItem("savedEvent");
     // } else var renderSaved = JSON.parse(localStorage.getItem("savedEvent"));
-
-    
 
      // prints to the page
      savedEvent.append(renderEvent);
@@ -112,6 +112,37 @@ function renderLastEvent() {
 var today = moment();
 $("#currentDay").text(today.format("dddd, MMMM Do YYYY, h:mm a"));
 
+ // military time array (to associate current time and moment.js for changing bg color)
+ 
+ var timesNumbers = [9, 10, 11, 12, 13, 14, 15, 16, 17]
+
+ var hour = moment().format('H')
+
+console.log(hour)
+
+// var rootEl = document.getElementById("root");
+var nine = $('#9');
+var ten = $('#10');
+var eleven = $('#11');
+var twelve = $('#12');
+var thirteen = $('#13');
+var fourteen = $('#14');
+var fifteen = $('#15');
+var sixteen = $('#16');
+var seventeen = $('#15');
+
+var timesNumber = [nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen]
+
+console.log(timesNumber[1])
+
+
+
+
+
+
+
+
+ 
 
 
 
