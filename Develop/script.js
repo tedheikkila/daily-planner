@@ -1,9 +1,5 @@
 // custom script for daily planner, TWH, 6-19-21
 
-// today's date in the following format: Saturday, July 4th 2011, 6:30 (top of page)
-var today = moment();
-$("#currentDay").text(today.format("dddd, MMMM Do YYYY, h:mm a"));
-
 // plan:
     //1. need to use jQuery and moment.js to determine how bg colors on time rows (if structure)
         //less than current time then gray; current = red; greater than = green (on page refresh)
@@ -33,6 +29,49 @@ $("#currentDay").text(today.format("dddd, MMMM Do YYYY, h:mm a"));
     // parse out using JSON and render onto the page. if content is already there then append the 
     // string to pre-existing text 
     // after page refresh the rendered content should persist
+
+// today's date in the following format: Saturday, July 4th 2011, 6:30 (top of page)
+var today = moment();
+$("#currentDay").text(today.format("dddd, MMMM Do YYYY, h:mm a"));
+
+// capturing and saving item to page (also put into local storage)
+var dailyEvent = $('.form-input');
+
+// global var saveBtn
+var saveBtn = $('.saveBtn');
+ 
+function saveEvent(event) {
+    event.preventDefault()
+
+    var typedEvent = $("input[name='form-input']").val();
+
+    console.log(typedEvent)
+
+    if (!typedEvent) {
+        console.log('No event typed in');
+        return;
+      }
+
+    // need to set to local storage here
+    
+
+
+
+    
+    // print to the page
+    dailyEvent.append(typedEvent);
+
+}
+
+
+
+// event delegation for every save button on form
+saveBtn.on('click', saveEvent);
+
+
+
+
+
 
 
 
