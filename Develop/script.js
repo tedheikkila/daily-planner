@@ -19,6 +19,21 @@ $("#currentDay").text(today.format("dddd, MMMM Do YYYY, h:mm a"));
 
 // red = past; blue = present; green = future hour
 
+// changing bg color plan:
+    // create lets using jQuery syntax for 9, 10, 11a selectors; going to have to add specific 
+    // class values in the HTML; set these variables as integer values (military time) then put into an array
+    // use moment js to grab the current hour time in interger format (military time)
+    // in an if statement go through the array and compared which values are greater
+    // than the moment time, equal, and less than (by their index value)
+    // then finally change the bg color of each using style property jQuery
+
+// save text input plan:
+    // JSON stringify the user's text value upon a forEach click event for the save button(s)
+    // store in local storage
+    // parse out using JSON and render onto the page. if content is already there then append the 
+    // string to pre-existing text 
+    // after page refresh the rendered content should persist
+
 
 
     
