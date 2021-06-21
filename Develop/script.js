@@ -12,65 +12,73 @@
     let saveBtn = $('.saveBtn');
 
 
+    const inputBlock = document.getElementsByClassName("form-input")
+    const saveBlock = document.getElementsByClassName("saveBtn")
+
+
 // SECTION #1: handling user input and the save button(s):  
+      
+saveBtn.on('click', check);
+
+function check(event) { 
+
+    var saveBtnClicked = $(event.target);
+
+    console.log(saveBtnClicked)
+
+    //if specific save button clicked id's number is a sibling to the used text area then proceed
+    // to save the Event if not return item "not saved"
+
     
-    const timesString = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"]  // string array for times (associated with text input)
-  
+    
+
+
+        
+    
+
+    
+    
+
+
    
 
-// loops through timesString array and attaches custom attribute
-function attachTimes() {
+ 
 
-    // for-loop to iterate through the timesString array
-    for (var i = 0; i < timesString.length; i++) {
-        // Assign the text area to the data-time attribute
-        dailyEvent.attr('time-attr', timesString[i]);
-    }
+  
 }
+
+
+
+
 
 // call to render on page refresh
 renderLastEvent()
  
 // Delegate event listener to saveBtn; isolate to specific section being typed in using code above
-function saveEvent(event) {
-
-    event.preventDefault()
+function saveEvent() {
 
     var typedEvent = $("input[name='form-input']").val();
-
-    console.log(typedEvent)
 
     if (!typedEvent) {
         console.log('No event typed in');
         return;
       }
 
-    // savedEvent.append("")
-    console.log(savedEvent)
+    savedEvent.append(typedEvent)
 
-    // set input to local storage using "key" as key
-    // localStorage.setItem("typedEvent", typedEvent);
     localStorage.setItem("savedEvent", typedEvent)
 
-
     renderLastEvent()
-
-    attachTimes()
-
 }
-
-saveBtn.on('click', saveEvent);
 
 
 //get items from local storage
 function renderLastEvent() {
 
     var renderSavedEvent = localStorage.getItem("savedEvent")
-    //var renderSavedEvent = JSON.parse(localStorage.getItem("savedEvent"));
 
      savedEvent.append(renderSavedEvent);
 }
-
 
 
 
@@ -88,8 +96,6 @@ function renderLastEvent() {
 //    return 'Are you sure you want to leave?';
 
 // });
-
-
 
 
 
@@ -118,7 +124,7 @@ Array.from(hourBlock).forEach( hour => {
         rowTime = parseInt(hourString);
     }
     
-    //calling internal setBgcolor fcn
+    //calling internal setBgColor fcn
     if (rowTime) {
         if (momentHour === rowTime) {
             setBgColor(hour, "yellow");
