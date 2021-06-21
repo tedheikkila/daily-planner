@@ -6,10 +6,12 @@
     var dailyEvent = $('.form-input');
     // this is colored section (the past, present, future areas)
     var savedEvent = $('.input-group');
+    // this is for past, present, and future text
+    var timeState = $('.input.group-text')
     // saveBtn (blue)
     var saveBtn = $('.saveBtn');
     // string array for times (to associate with text input)
-    var timesString = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"]
+    const timesString = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"]
    
 
 // loops through timesString array and attaches custom attribute
@@ -99,26 +101,13 @@ function renderLastEvent() {
 
 // red = past; yellow = present; green = future; blue = save
 
-// changing bg color plan:
-    // create lets using jQuery syntax for 9, 10, 11a selectors; going to have to add specific 
-    // class values in the HTML; set these variables as integer values (military time) then put into an array
-    // use moment js to grab the current hour time in interger format (military time)
-    // in an if statement go through the array and compared which values are greater
-    // than the moment time, equal, and less than (by their index value)
-    // then finally change the bg color of each using style property jQuery
-
-
 // today's date in the following format: Saturday, July 4th 2011, 6:30 (top of page)
 var today = moment();
 $("#currentDay").text(today.format("dddd, MMMM Do YYYY, h:mm a"));
 
  // military time array (to associate current time and moment.js for changing bg color)
  
- var timesNumbers = [9, 10, 11, 12, 13, 14, 15, 16, 17]
-
- var hour = moment().format('H')
-
-console.log(hour)
+var timesNumbers = [9, 10, 11, 12, 13, 14, 15, 16, 17]
 
 // var rootEl = document.getElementById("root");
 var nine = $('#9');
@@ -131,10 +120,54 @@ var fifteen = $('#15');
 var sixteen = $('#16');
 var seventeen = $('#15');
 
-var timesNumber = [nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen]
+nine = timesNumbers[0]
+ten = timesNumbers[1]
+eleven = timesNumbers[2]
+twelve = timesNumbers[3]
+thirteen = timesNumbers[4]
+fourteen = timesNumbers[5]
+fifteen = timesNumbers[6]
+sixteen = timesNumbers[7]
+seventeen = timesNumbers[8]
 
-console.log(timesNumber[1])
+var timeRowIds = [nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen]
 
+let momentHour = parseInt(moment().format('H'));
+
+console.log(momentHour)
+
+console.log(nine)
+
+
+
+for (i=0; i < timeRowIds.length; i++) {
+    if (timeRowIds[i]<momentHour) {
+        savedEvent.css('background-color', 'red')
+    } else if (timeRowIds[i]==momentHour) {
+        savedEvent.css('background-color', 'yellow')
+    } else savedEvent.css('background-color', 'green')
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
 
 
 
@@ -148,4 +181,4 @@ console.log(timesNumber[1])
 
 
 
-    
+
