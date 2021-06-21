@@ -29,7 +29,7 @@ function attachTimes() {
 }
 
 // call to render on page refresh
-renderLastEvent()
+// renderLastEvent()
  
 // Delegate event listener to saveBtn; isolate to specific section being typed in using code above
 function saveEvent(event) {
@@ -58,21 +58,22 @@ function saveEvent(event) {
     savedEvent.append(typedEventItem)
 
     // set input to local storage using "key" as key
-    localStorage.setItem("typedEvent", typedEvent);
+    // localStorage.setItem("typedEvent", typedEvent);
+    localStorage.setItem("typedEventItem", JSON.stringify(typedEventItem));
 
     // if (savedEvent===null) {
     //put already saved events into local storage
-    localStorage.setItem("savedEvent", savedEvent);
+    // localStorage.setItem("savedEvent", savedEvent);
     // } else localStorage.setItem("savedEvent", JSON.stringify(savedEvent));
 
 
-    // renderLastEvent()
+    renderLastEvent()
 
-    attachTimes()
+    // attachTimes()
 
 }
 
-dailyEvent.on('click', 'saveBtn', saveEvent);
+saveBtn.on('click', saveEvent);
 
 // get items entered from local storage, so events persist through browser reload events
 // $(window).bind('beforeunload',function(){
@@ -85,15 +86,17 @@ dailyEvent.on('click', 'saveBtn', saveEvent);
 
 //get items from local storage
 function renderLastEvent() {
-    var renderEvent= localStorage.getItem("typedEvent");
+    // var renderEvent= localStorage.getItem("typedEvent");
 
     // if (savedEvent===null) {
-    var renderSaved = localStorage.getItem("savedEvent");
+    // var renderSaved = localStorage.getItem("savedEvent");
+    var renderEventItem = JSON.parse(localStorage.getItem("typedEventItem"))
     // } else var renderSaved = JSON.parse(localStorage.getItem("savedEvent"));
 
      // prints to the page
-     savedEvent.append(renderEvent);
-     savedEvent.append(renderSaved);
+    //  savedEvent.append(renderEvent);
+    //  savedEvent.append(renderSaved);
+     savedEvent.append(renderEventItem);
 }
 
 
@@ -136,20 +139,40 @@ let momentHour = parseInt(moment().format('H'));
 
 console.log(momentHour)
 
-console.log(nine)
-
+console.log(timesNumbers.length)
 
 
 for (i=0; i < timeRowIds.length; i++) {
+    if (i<1) {
+        changeColor()
+    } else if (i<2) {
+        changeColor()
+    } else if (i<3) {
+    
+    } else if (i<4) {
+        changeColor()
+    } else if (i<5) {
+
+    } else if (i<6) {
+        changeColor()
+    } else if (i<3) {
+
+    } else if (i<7) {
+        changeColor()
+    } else if (i<8) {
+        changeColor()
+    } else if (i<9) {
+        changeColor()
+    } else changeColor()
+}
+
+function changeColor () {
     if (timeRowIds[i]<momentHour) {
         savedEvent.css('background-color', 'red')
     } else if (timeRowIds[i]==momentHour) {
         savedEvent.css('background-color', 'yellow')
     } else savedEvent.css('background-color', 'green')
 }
-
-
-
 
 
 
