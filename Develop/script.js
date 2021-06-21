@@ -29,7 +29,7 @@ function attachTimes() {
 }
 
 // call to render on page refresh
-// renderLastEvent()
+renderLastEvent()
  
 // Delegate event listener to saveBtn; isolate to specific section being typed in using code above
 function saveEvent(event) {
@@ -45,21 +45,25 @@ function saveEvent(event) {
         return;
       }
 
-    var typedEventItem = $(
-        '<li class="flex-row justify-space-between align-center p-2 bg-light text-dark">'
-      );
+    // var typedEventItem = $(
+    //     '<li class="flex-row justify-space-between align-center p-2 bg-light text-dark">'
+    //   );
 
-    typedEventItem.text(typedEvent);
+    // typedEventItem.text(typedEvent)
+    // console.log(typedEventItem)
     
     // get time from clicked time's ave button w/ data-time attribute and use it for saving specific event
     // typedEvent.text($(event.target).attr('time-attr'));
   
     // print to the page
-    savedEvent.append(typedEventItem)
+    // savedEvent.append(typedEvent)
+
+    // savedEvent.append("")
+    console.log(savedEvent)
 
     // set input to local storage using "key" as key
     // localStorage.setItem("typedEvent", typedEvent);
-    localStorage.setItem("typedEventItem", JSON.stringify(typedEventItem));
+    localStorage.setItem("savedEvent", typedEvent);
 
     // if (savedEvent===null) {
     //put already saved events into local storage
@@ -90,13 +94,13 @@ function renderLastEvent() {
 
     // if (savedEvent===null) {
     // var renderSaved = localStorage.getItem("savedEvent");
-    var renderEventItem = JSON.parse(localStorage.getItem("typedEventItem"))
+    var renderSavedEvent = localStorage.getItem("savedEvent")
     // } else var renderSaved = JSON.parse(localStorage.getItem("savedEvent"));
 
      // prints to the page
     //  savedEvent.append(renderEvent);
     //  savedEvent.append(renderSaved);
-     savedEvent.append(renderEventItem);
+     savedEvent.append(renderSavedEvent);
 }
 
 
