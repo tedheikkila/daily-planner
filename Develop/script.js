@@ -3,15 +3,19 @@
 //global vars
 
     // where user enters in events (the textarea)
-    var dailyEvent = $('.form-input');
+    let dailyEvent = $('.form-input');
     // this is colored section (the past, present, future areas)
-    var savedEvent = $('.input-group');
+    let savedEvent = $('.input-group');
     // this is for past, present, and future text
-    var timeState = $('.input.group-text')
+    let timeState = $('.input.group-text')
     // saveBtn (blue)
-    var saveBtn = $('.saveBtn');
-    // string array for times (to associate with text input)
-    const timesString = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"]
+    let saveBtn = $('.saveBtn');
+
+
+// SECTION #1: handling user input and the save button(s):  
+    
+    const timesString = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"]  // string array for times (associated with text input)
+  
    
 
 // loops through timesString array and attaches custom attribute
@@ -19,13 +23,9 @@ function attachTimes() {
 
     // for-loop to iterate through the timesString array
     for (var i = 0; i < timesString.length; i++) {
-         // Assign style to the button
-        dailyEvent.addClass('time-class');
         // Assign the text area to the data-time attribute
         dailyEvent.attr('time-attr', timesString[i]);
-        console.log(timesString.length)
     }
-
 }
 
 // call to render on page refresh
@@ -45,41 +45,42 @@ function saveEvent(event) {
         return;
       }
 
-    // var typedEventItem = $(
-    //     '<li class="flex-row justify-space-between align-center p-2 bg-light text-dark">'
-    //   );
-
-    // typedEventItem.text(typedEvent)
-    // console.log(typedEventItem)
-    
-    // get time from clicked time's ave button w/ data-time attribute and use it for saving specific event
-    // typedEvent.text($(event.target).attr('time-attr'));
-  
-    // print to the page
-    // savedEvent.append(typedEvent)
-
     // savedEvent.append("")
     console.log(savedEvent)
 
     // set input to local storage using "key" as key
     // localStorage.setItem("typedEvent", typedEvent);
-    localStorage.setItem("savedEvent", typedEvent);
-
-    // if (savedEvent===null) {
-    //put already saved events into local storage
-    // localStorage.setItem("savedEvent", savedEvent);
-    // } else localStorage.setItem("savedEvent", JSON.stringify(savedEvent));
+    localStorage.setItem("savedEvent", typedEvent)
 
 
     renderLastEvent()
 
-    // attachTimes()
+    attachTimes()
 
 }
 
 saveBtn.on('click', saveEvent);
 
-// get items entered from local storage, so events persist through browser reload events
+
+//get items from local storage
+function renderLastEvent() {
+
+    var renderSavedEvent = localStorage.getItem("savedEvent")
+    //var renderSavedEvent = JSON.parse(localStorage.getItem("savedEvent"));
+
+     savedEvent.append(renderSavedEvent);
+}
+
+
+
+
+
+
+
+
+
+// user convenience to ensure that they clicked a save button before exiting/refreshing browser
+// maintain this and uncomment later
 // $(window).bind('beforeunload',function(){
 
 //     renderLastEvent()
@@ -88,95 +89,79 @@ saveBtn.on('click', saveEvent);
 
 // });
 
-//get items from local storage
-function renderLastEvent() {
-    // var renderEvent= localStorage.getItem("typedEvent");
-
-    // if (savedEvent===null) {
-    // var renderSaved = localStorage.getItem("savedEvent");
-    var renderSavedEvent = localStorage.getItem("savedEvent")
-    // } else var renderSaved = JSON.parse(localStorage.getItem("savedEvent"));
-
-     // prints to the page
-    //  savedEvent.append(renderEvent);
-    //  savedEvent.append(renderSaved);
-     savedEvent.append(renderSavedEvent);
-}
 
 
-//moment.js section:
 
-// red = past; yellow = present; green = future; blue = save
 
-// today's date in the following format: Saturday, July 4th 2011, 6:30 (top of page)
+
+
+
+
+//SECTION #2 >> moment.js & bg color section:
+
+// red = past; yellow = present; green = future; blue = text input/save btn
+
+// displays today's date in the following format: Saturday, July 4th 2011, 6:30 (top of page)
 var today = moment();
 $("#currentDay").text(today.format("dddd, MMMM Do YYYY, h:mm a"));
 
- // military time array (to associate current time and moment.js for changing bg color)
- 
-var timesNumbers = [9, 10, 11, 12, 13, 14, 15, 16, 17]
-
-// var rootEl = document.getElementById("root");
-var nine = $('#9');
-var ten = $('#10');
-var eleven = $('#11');
-var twelve = $('#12');
-var thirteen = $('#13');
-var fourteen = $('#14');
-var fifteen = $('#15');
-var sixteen = $('#16');
-var seventeen = $('#15');
-
-nine = timesNumbers[0]
-ten = timesNumbers[1]
-eleven = timesNumbers[2]
-twelve = timesNumbers[3]
-thirteen = timesNumbers[4]
-fourteen = timesNumbers[5]
-fifteen = timesNumbers[6]
-sixteen = timesNumbers[7]
-seventeen = timesNumbers[8]
-
-var timeRowIds = [nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen]
-
+// declaring consts for 
+const hourBlock = document.getElementsByClassName("hourBlock")
+const hourStatus = document.getElementsByClassName("input-group-text")
 let momentHour = parseInt(moment().format('H'));
 
-console.log(momentHour)
-
-console.log(timesNumbers.length)
-
-
-for (i=0; i < timeRowIds.length; i++) {
-    if (i<1) {
-        changeColor()
-    } else if (i<2) {
-        changeColor()
-    } else if (i<3) {
+// changes bg color of time block
+Array.from(hourBlock).forEach( hour => {
+    let 
+        hourString = hour.id, rowTime;
+    if (hourString) {
+        rowTime = parseInt(hourString);
+    }
     
-    } else if (i<4) {
-        changeColor()
-    } else if (i<5) {
+    //calling internal setBgcolor fcn
+    if (rowTime) {
+        if (momentHour === rowTime) {
+            setBgColor(hour, "yellow");
+        } else if (momentHour > rowTime) {
+            setBgColor(hour, "red"); 
+        } else if (momentHour < rowTime) {
+            setBgColor(hour, "green")
+        }
+    }
 
-    } else if (i<6) {
-        changeColor()
-    } else if (i<3) {
+})
 
-    } else if (i<7) {
-        changeColor()
-    } else if (i<8) {
-        changeColor()
-    } else if (i<9) {
-        changeColor()
-    } else changeColor()
+//changes bg color for a block of hour
+function setBgColor (hour, color) {
+    hour.style.backgroundColor = color;
 }
 
-function changeColor () {
-    if (timeRowIds[i]<momentHour) {
-        savedEvent.css('background-color', 'red')
-    } else if (timeRowIds[i]==momentHour) {
-        savedEvent.css('background-color', 'yellow')
-    } else savedEvent.css('background-color', 'green')
+// changes time status for input group text
+Array.from(hourStatus).forEach( status => {
+    let 
+        statusString = status.id, rowTime;
+    if (statusString) {
+        rowTime = parseInt(statusString);
+    }
+
+    //calling in internal changeText fcn
+    if (rowTime) {
+        if (momentHour === rowTime) {
+            changeText(status, "Present");
+        } else if (momentHour > rowTime) {
+            changeText(status, "Past"); 
+        } else if (momentHour < rowTime) {
+            changeText(status, "Future")
+        }
+    }
+
+})
+
+//change status of text using this fcn
+function changeText (status, text) {
+    status.textContent = text
 }
+
 
 
 
