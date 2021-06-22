@@ -86,12 +86,14 @@ textarea {
   cursor: pointer;
 }
 
+/* styling border around input field */
 .input-group {
   background-color: blue;
   padding: 20px;
   color:white;
 }
 
+/* where user enters input into form */
 .input-group-text {
   font-size: 18px;
   font-family: 'Work Sans', sans-serif;
@@ -99,11 +101,13 @@ textarea {
   padding:20px;
 }
 
+/* form class */
 .form-control {
   font-size:16px;
   border-radius:0px;
 }
 
+/* input field size */
 .form-input {
   width:76%;
 }

@@ -2,77 +2,59 @@
 
 //global vars
 
-    // where user enters in events (the textarea)
+    // where user enters in events (textarea)
     let dailyEvent = $('.form-input');
-    // this is colored section (the past, present, future areas)
+    // blue colored border box
     let savedEvent = $('.input-group');
-    // this is for past, present, and future text
-    let timeState = $('.input.group-text')
-    // saveBtn (blue)
-    let saveBtn = $('.saveBtn');
-
-
-    const inputBlock = document.getElementsByClassName("form-input")
-    const saveBlock = document.getElementsByClassName("saveBtn")
-
-
-// SECTION #1: handling user input and the save button(s):  
-      
-saveBtn.on('click', check);
-
-function check(event) { 
-
-    var saveBtnClicked = $(event.target);
-
-    console.log(saveBtnClicked)
-
-    //if specific save button clicked id's number is a sibling to the used text area then proceed
-    // to save the Event if not return item "not saved"
-
+    // saveBtns 
+    let saveBtn9 = $('#save9');
+    let saveBtn10 = $('#save10');
+    let saveBtn11 = $('#save11');
+    let saveBtn12 = $('#save12');
+    let saveBtn13 = $('#save13');
+    let saveBtn14 = $('#save14');
+    let saveBtn15 = $('#save15');
+    let saveBtn16 = $('#save16');
+    let saveBtn17 = $('#save17');
     
-    
-
-
-        
-    
-
-    
-    
-
-
-   
-
- 
-
   
-}
+// SECTION #1: handling user input and the save button(s); (as written not debugged correctly)
 
+// individual save buttons based on specific id's get handled by saveEvent
+saveBtn9.on('click', saveEvent)
+saveBtn10.on('click', saveEvent)
+saveBtn11.on('click', saveEvent)
+saveBtn12.on('click', saveEvent)
+saveBtn13.on('click', saveEvent)
+saveBtn14.on('click', saveEvent)
+saveBtn15.on('click', saveEvent)
+saveBtn16.on('click', saveEvent)
+saveBtn17.on('click', saveEvent)
 
+// saves to local storage and appends event 
+function saveEvent(event) {
 
+    // convert button pressed (event target) to a jQuery DOM object
+    var saveButtonClicked = $(event.target);
 
-
-// call to render on page refresh
-renderLastEvent()
- 
-// Delegate event listener to saveBtn; isolate to specific section being typed in using code above
-function saveEvent() {
-
+    // grabs input from user
     var typedEvent = $("input[name='form-input']").val();
 
     if (!typedEvent) {
         console.log('No event typed in');
-        return;
       }
 
-    savedEvent.append(typedEvent)
+    // appends to near input group (blue section)
+    saveButtonClicked.closest('input-group').append(typedEvent)
 
+    // saves to local storage
     localStorage.setItem("savedEvent", typedEvent)
 
     renderLastEvent()
 }
 
 
-//get items from local storage
+//gets items from local storage and appends to page
 function renderLastEvent() {
 
     var renderSavedEvent = localStorage.getItem("savedEvent")
@@ -80,24 +62,17 @@ function renderLastEvent() {
      savedEvent.append(renderSavedEvent);
 }
 
-
-
-
-
-
-
+// call to render on page refresh
+renderLastEvent()
 
 // user convenience to ensure that they clicked a save button before exiting/refreshing browser
-// maintain this and uncomment later
-// $(window).bind('beforeunload',function(){
+$(window).bind('beforeunload',function(){
 
-//     renderLastEvent()
+    renderLastEvent()
 
-//    return 'Are you sure you want to leave?';
+   return 'Are you sure you want to leave?';
 
-// });
-
-
+});
 
 
 
@@ -111,7 +86,7 @@ function renderLastEvent() {
 var today = moment();
 $("#currentDay").text(today.format("dddd, MMMM Do YYYY, h:mm a"));
 
-// declaring consts for 
+// declaring consts for time blocks, day status, and current moment hour
 const hourBlock = document.getElementsByClassName("hourBlock")
 const hourStatus = document.getElementsByClassName("input-group-text")
 let momentHour = parseInt(moment().format('H'));
@@ -137,7 +112,7 @@ Array.from(hourBlock).forEach( hour => {
 
 })
 
-//changes bg color for a block of hour
+//changes bg color for a block of hour based on if statement above
 function setBgColor (hour, color) {
     hour.style.backgroundColor = color;
 }
