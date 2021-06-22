@@ -82,13 +82,13 @@ textarea {
 .saveBtn:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
-  background-color: blue;
+  background-color: rgb(19, 7, 179);
   cursor: pointer;
 }
 
 /* styling border around input field */
 .input-group {
-  background-color: blue;
+  background-color: rgb(19, 7, 179);
   padding: 20px;
   color:white;
 }
@@ -110,6 +110,11 @@ textarea {
 /* input field size */
 .form-input {
   width:76%;
+}
+
+.hourBlock {
+  font-weight: bold;
+  color:white
 }
 
 

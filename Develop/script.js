@@ -102,11 +102,11 @@ Array.from(hourBlock).forEach( hour => {
     //calling internal setBgColor fcn
     if (rowTime) {
         if (momentHour === rowTime) {
-            setBgColor(hour, "yellow");
+            setBgColor(hour, "rgb(219, 158, 4)");
         } else if (momentHour > rowTime) {
-            setBgColor(hour, "red"); 
+            setBgColor(hour, "rgb(172, 20, 20)"); 
         } else if (momentHour < rowTime) {
-            setBgColor(hour, "green")
+            setBgColor(hour, "rgba(0, 105, 0, 0.863)")
         }
     }
 
