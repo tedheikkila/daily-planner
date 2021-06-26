@@ -2,20 +2,20 @@
 
 //global vars
 
-    // where user enters in events (textarea)
-    let dailyEvent = $('.form-input');
-    // blue colored border box
-    let savedEvent = $('.input-group');
-    // saveBtns 
-    let saveBtn9 = $('#save9');
-    let saveBtn10 = $('#save10');
-    let saveBtn11 = $('#save11');
-    let saveBtn12 = $('#save12');
-    let saveBtn13 = $('#save13');
-    let saveBtn14 = $('#save14');
-    let saveBtn15 = $('#save15');
-    let saveBtn16 = $('#save16');
-    let saveBtn17 = $('#save17');
+// where user enters in events (textarea)
+let dailyEvent = $('.form-input');
+// blue colored border box
+let savedEvent = $('.input-group');
+// saveBtns 
+let saveBtn9 = $('#save9');
+let saveBtn10 = $('#save10');
+let saveBtn11 = $('#save11');
+let saveBtn12 = $('#save12');
+let saveBtn13 = $('#save13');
+let saveBtn14 = $('#save14');
+let saveBtn15 = $('#save15');
+let saveBtn16 = $('#save16');
+let saveBtn17 = $('#save17');
     
   
 // SECTION #1: handling user input and the save button(s); (as written not debugged correctly)
@@ -57,23 +57,13 @@ function renderLastEvent() {
 
     var renderSavedEvent = localStorage.getItem("savedEvent")
 
-     savedEvent.append(renderSavedEvent);
+    savedEvent.append(renderSavedEvent);
 }
 
 // call to render on page refresh
 renderLastEvent()
 
-// user convenience to ensure that they clicked a save button before exiting/refreshing browser
-$(window).bind('beforeunload',function(){
-
-    renderLastEvent()
-
-   return 'Are you sure you want to leave?';
-
-});
-
 //SECTION #2 >> moment.js & bg color section:
-
 // red = past; yellow = present; green = future; blue = text input/save btn
 
 // displays today's date in the following format: Saturday, July 4th 2011, 6:30 (top of page)
@@ -103,7 +93,6 @@ Array.from(hourBlock).forEach( hour => {
             setBgColor(hour, "rgba(0, 105, 0, 0.863)")
         }
     }
-
 })
 
 //changes bg color for a block of hour based on if statement above
@@ -129,7 +118,6 @@ Array.from(hourStatus).forEach( status => {
             changeText(status, "Future")
         }
     }
-
 })
 
 //change status of text using this fcn
