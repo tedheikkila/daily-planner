@@ -17,7 +17,6 @@ let saveBtn15 = $('#save15');
 let saveBtn16 = $('#save16');
 let saveBtn17 = $('#save17');
     
-  
 // SECTION #1: handling user input and the save button(s); (as written not debugged correctly)
 // individual save buttons based on specific id's get handled by saveEvent
 saveBtn9.on('click', saveEvent)
@@ -124,36 +123,3 @@ Array.from(hourStatus).forEach( status => {
 function changeText (status, text) {
     status.textContent = text
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
