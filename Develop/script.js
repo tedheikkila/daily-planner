@@ -19,7 +19,6 @@
     
   
 // SECTION #1: handling user input and the save button(s); (as written not debugged correctly)
-
 // individual save buttons based on specific id's get handled by saveEvent
 saveBtn9.on('click', saveEvent)
 saveBtn10.on('click', saveEvent)
@@ -53,7 +52,6 @@ function saveEvent(event) {
     renderLastEvent()
 }
 
-
 //gets items from local storage and appends to page
 function renderLastEvent() {
 
@@ -73,10 +71,6 @@ $(window).bind('beforeunload',function(){
    return 'Are you sure you want to leave?';
 
 });
-
-
-
-
 
 //SECTION #2 >> moment.js & bg color section:
 
