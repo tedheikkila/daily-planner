@@ -1,4 +1,4 @@
-# hw5-daily-planner
+# daily-planner
 
 Summary:
 <br>
