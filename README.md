@@ -14,7 +14,7 @@ Upon loading the page the user can see the current day and time. Using a color-c
 
 Application URL: 
 <br>
-Check out the deployed application here: https://tedheikkila.github.io/hw5-daily-planner/
+Check out the deployed application here: https://tedheikkila.github.io/daily-planner/
 <br>
 
 <br>
