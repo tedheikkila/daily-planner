@@ -8,17 +8,6 @@ body {
   line-height: 1;
 }
 
-/* where user enter daily activities */
-textarea {
-  background: transparent;
-  border: none;
-  resize: none;
-  color: #000000;
-  border-left: 1px solid black;
-  padding: 10px;
-}
-
-/* area at page top */
 .jumbotron {
   text-align: center;
   background-color: transparent;
@@ -27,15 +16,9 @@ textarea {
   border-bottom: 10px solid black;
 }
 
-/* activity description */
-.description {
-  white-space: pre-wrap;
-}
-
-/* square time block at row's left column */
-.time-block {
-  text-align: center;
-  border-radius: 15px;
+.text-area {
+  background-color: white;
+  width: 76%;
 }
 
 /* each row for each hour */
@@ -46,7 +29,7 @@ textarea {
 }
 
 /* activity save btn for local storage; at far right of each time row */
-.saveBtn {
+.save-btn {
   border-radius: 5px;
   background-color: black;
   color: white;
@@ -54,7 +37,7 @@ textarea {
 }
 
 /* hover event for save btn (user convenience) */
-.saveBtn:hover {
+.save-btn:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
   background-color: rgb(19, 7, 179);
@@ -76,18 +59,7 @@ textarea {
   padding:20px;
 }
 
-/* form class */
-.form-control {
-  font-size:16px;
-  border-radius:0px;
-}
-
-/* input field size */
-.form-input {
-  width:76%;
-}
-
 .hourBlock {
   font-weight: bold;
   color:white
-}
+} 

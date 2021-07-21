@@ -6,28 +6,12 @@
 let dailyEvent = $('.form-input');
 // blue colored border box
 let savedEvent = $('.input-group');
-// saveBtns 
-let saveBtn9 = $('#save9');
-let saveBtn10 = $('#save10');
-let saveBtn11 = $('#save11');
-let saveBtn12 = $('#save12');
-let saveBtn13 = $('#save13');
-let saveBtn14 = $('#save14');
-let saveBtn15 = $('#save15');
-let saveBtn16 = $('#save16');
-let saveBtn17 = $('#save17');
+// save btns
+let saveBtn = $('.saveBtn')
+// textarea for user's input
+let textArea = $('.text-area')
     
 // SECTION #1: handling user input and the save button(s); (as written not debugged correctly)
-// individual save buttons based on specific id's get handled by saveEvent
-saveBtn9.on('click', saveEvent)
-saveBtn10.on('click', saveEvent)
-saveBtn11.on('click', saveEvent)
-saveBtn12.on('click', saveEvent)
-saveBtn13.on('click', saveEvent)
-saveBtn14.on('click', saveEvent)
-saveBtn15.on('click', saveEvent)
-saveBtn16.on('click', saveEvent)
-saveBtn17.on('click', saveEvent)
 
 // saves to local storage and appends event 
 function saveEvent(event) {
@@ -62,6 +46,11 @@ function renderLastEvent() {
 // call to render on page refresh
 renderLastEvent()
 
+
+
+
+
+
 //SECTION #2 >> moment.js & bg color section:
 // red = past; yellow = present; green = future; blue = text input/save btn
 
@@ -76,8 +65,7 @@ let momentHour = parseInt(moment().format('H'));
 
 // changes bg color of time block
 Array.from(hourBlock).forEach( hour => {
-    let 
-        hourString = hour.id, rowTime;
+    let hourString = hour.id, rowTime;
     if (hourString) {
         rowTime = parseInt(hourString);
     }
@@ -101,8 +89,7 @@ function setBgColor (hour, color) {
 
 // changes time status for input group text
 Array.from(hourStatus).forEach( status => {
-    let 
-        statusString = status.id, rowTime;
+    let statusString = status.id, rowTime;
     if (statusString) {
         rowTime = parseInt(statusString);
     }
