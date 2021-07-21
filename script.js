@@ -2,111 +2,92 @@
 
 //global vars
 
-// where user enters in events (textarea)
-let dailyEvent = $('.form-input');
-// blue colored border box
-let savedEvent = $('.input-group');
-// save btns
-let saveBtn = $('.saveBtn')
-// textarea for user's input
-let textArea = $('.text-area')
-    
-// SECTION #1: handling user input and the save button(s); (as written not debugged correctly)
+let saveBtn = $('.save-btn')
 
-// saves to local storage and appends event 
-function saveEvent(event) {
+// handles textareas and save btns
+saveBtn.on("click", function (event) {
 
-    // convert button pressed (event target) to a jQuery DOM object
-    var saveButtonClicked = $(event.target);
+    // captures click event using "this"
+    let btnData = $(this).attr("data-time");
 
-    // grabs input from user
-    var typedEvent = $("input[name='form-input']").val();
+    // captures text
+    let textTarget = $("#text" + btnData);
 
-    if (!typedEvent) {
-        console.log('No event typed in');
-      }
+    // sets into local storage w/key = "id"
+    localStorage.setItem(textTarget.attr("id"), textTarget.val());
+});
 
-    // appends to near input group (blue section)
-    saveButtonClicked.closest('input-group').append(typedEvent)
+// first #text refers to HTML text area element; second #text refers to localStorage value
+$("#text9").text(localStorage.getItem("text9"));
+$("#text10").text(localStorage.getItem("text10"));
+$("#text11").text(localStorage.getItem("text11"));
+$("text12").text(localStorage.getItem("text12"));
+$("#text13").text(localStorage.getItem("text13"));
+$("#text14").text(localStorage.getItem("text14"));
+$("#text15").text(localStorage.getItem("text15"));
+$("#text16").text(localStorage.getItem("text16"));
+$("#text17").text(localStorage.getItem("text17"));
 
-    // saves to local storage
-    localStorage.setItem("savedEvent", typedEvent)
+// clear btn removes all text from local storage
+$("#clearBtn").on("click", function () {
+    localStorage.clear();
+    $(".description").text("");
+});
 
-    renderLastEvent()
-}
-
-//gets items from local storage and appends to page
-function renderLastEvent() {
-
-    var renderSavedEvent = localStorage.getItem("savedEvent")
-
-    savedEvent.append(renderSavedEvent);
-}
-
-// call to render on page refresh
-renderLastEvent()
-
-
-
-
-
-
-//SECTION #2 >> moment.js & bg color section:
-// red = past; yellow = present; green = future; blue = text input/save btn
 
 // displays today's date in the following format: Saturday, July 4th 2011, 6:30 (top of page)
-var today = moment();
+let today = moment();
 $("#currentDay").text(today.format("dddd, MMMM Do YYYY, h:mm a"));
 
-// declaring consts for time blocks, day status, and current moment hour
+// declaring for time blocks, day status, and current moment hour
 const hourBlock = document.getElementsByClassName("hourBlock")
 const hourStatus = document.getElementsByClassName("input-group-text")
 let momentHour = parseInt(moment().format('H'));
 
 // changes bg color of time block
-Array.from(hourBlock).forEach( hour => {
+Array.from(hourBlock).forEach(hour => {
     let hourString = hour.id, rowTime;
     if (hourString) {
         rowTime = parseInt(hourString);
     }
-    
-    //calling internal setBgColor fcn
+
+    //call internal setBgColor fcn
     if (rowTime) {
         if (momentHour === rowTime) {
             setBgColor(hour, "rgb(219, 158, 4)");
         } else if (momentHour > rowTime) {
-            setBgColor(hour, "rgb(172, 20, 20)"); 
+            setBgColor(hour, "rgb(172, 20, 20)");
         } else if (momentHour < rowTime) {
             setBgColor(hour, "rgba(0, 105, 0, 0.863)")
         }
     }
 })
 
-//changes bg color for a block of hour based on if statement above
-function setBgColor (hour, color) {
+//changes bg color for block of hour
+function setBgColor(hour, color) {
     hour.style.backgroundColor = color;
 }
 
-// changes time status for input group text
-Array.from(hourStatus).forEach( status => {
+// changes time status to past, present, or future
+Array.from(hourStatus).forEach(status => {
     let statusString = status.id, rowTime;
     if (statusString) {
         rowTime = parseInt(statusString);
     }
 
-    //calling in internal changeText fcn
+    //call internal changeText fcn
     if (rowTime) {
         if (momentHour === rowTime) {
             changeText(status, "Present");
         } else if (momentHour > rowTime) {
-            changeText(status, "Past"); 
+            changeText(status, "Past");
         } else if (momentHour < rowTime) {
             changeText(status, "Future")
         }
     }
 })
 
-//change status of text using this fcn
-function changeText (status, text) {
+//changes hour status' text
+function changeText(status, text) {
     status.textContent = text
 }

@@ -2,223 +2,242 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <!--bootstrap link-->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
-    <!--font awesome link-->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-    />
-   <!--revised to differnt google fonts link (work sans)-->
-    <link
-    rel = "stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200&display=swap"
-    />
-    <!--custom css link-->
-    <link rel="stylesheet" href="./style.css" />
-    <title>Daily Planner</title>
-  </head>
 
-  <body>
-    <header class="jumbotron">
-      <!--bootstrap h1 header-->
-      <h1 class="display-3">Daily Planner</h1>
-      <!--instructions-->
-      <p class="lead">A calendar app for scheduling your work day</p>
-      <!--selectors for moment.js current day-->
-      <p id="currentDay" class="lead"></p>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!--bootstrap link-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <!--font awesome link-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <!--revised to differnt google fonts link (work sans)-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200&display=swap" />
+  <!--custom css link-->
+  <link rel="stylesheet" href="./style.css" />
+  <title>Daily Planner</title>
+</head>
 
-    <!--time blocks (9am-5pm)-->
-    <div class="container">
-      <!--striped table variant w/hover (bootstrap)-->
+<body>
+  <header class="jumbotron">
+    <!--bootstrap h1 header-->
+    <h1 class="display-3">Daily Planner</h1>
+    <!--instructions-->
+    <p class="lead">A calendar app for scheduling your work day</p>
+    <!--selectors for moment.js current day-->
+    <p id="currentDay" class="lead"></p>
+  </header>
+
+  <!--time blocks (9am-5pm)-->
+  <div class="container">
+    <!--striped table variant w/hover (bootstrap)-->
     <div class="time-table">
       <table class="table table-striped table-hover">
         <thead>
-      <tr>
-        <!--need place holder columns for Events to span over-->
-        <th scope="col">Time</th>
-        <th scope="col" colspan ="12">Events</th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-        <th scope="col">Save</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row" class = "hourBlock" id ="9">9am</th>
-        <td colspan="21">
-          <!--text area bootstrap (last basic example item; Form tab)-->
-          <div class="input-group">
-            <span class="input-group-text" id="9">Past</span>
-            <textarea class="text-area"></textarea>        
-           </div>
-        </td>
-        <td>
-          <!--save btn (calendar plus bootstrap icon)-->
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="save-btn" viewBox="0 0 16 16">
-          <path d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z"/>
-          <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-          </svg>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row" class = "hourBlock" id ="10">10am</th>
-        <td colspan="21">
-          <form class="input-group">
-            <span class="input-group-text" id="10">Past</span>
-            <textarea class="text-area"></textarea>        
-          </form>
-        </td>
+          <tr>
+            <!--need place holder columns for Events to span over-->
+            <th scope="col">Time</th>
+            <th scope="col" colspan="12">Events</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col">Save</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="hourBlock" id="9">9am</th>
+            <td colspan="21">
+              <!--text area bootstrap (last basic example item; Form tab)-->
+              <div class="input-group">
+                <span class="input-group-text" id="9">Past</span>
+                <textarea class="text" id="text9"></textarea>
+              </div>
+            </td>
+            <td>
+              <!--save btn (calendar plus bootstrap icon)-->
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="save-btn"
+                data-time="9" viewBox="0 0 16 16">
+                <path
+                  d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z" />
+                <path
+                  d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+              </svg>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="hourBlock" id="10">10am</th>
+            <td colspan="21">
+              <form class="input-group">
+                <span class="input-group-text" id="10">Past</span>
+                <textarea class="text" id="text10"></textarea>
+              </form>
+            </td>
 
-        <td>
-          <!--save btn (calendar plus bootstrap)-->
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="save-btn" viewBox="0 0 16 16">
-          <path d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z"/>
-          <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-          </svg>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row" class="hourBlock" id="11">11am</th>
-        <td colspan="21">
-          <form class="input-group">
-            <span class="input-group-text" id="11">Past</span>
-            <textarea class="text-area"></textarea>        
-          </form>
-        </td>
-        <td>
-          <!--save btn (calendar plus bootstrap)-->
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="save-btn" viewBox="0 0 16 16">
-          <path d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z"/>
-          <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-          </svg>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row" class = "hourBlock" id="12">12pm</th>
-        <td colspan="21">
-          <form class="input-group">
-            <span class="input-group-text" id="12">Past</span>
-            <textarea class="text-area"></textarea>        
-          </form>
-        </td>
-        <td>
-          <!--save btn (calendar plus bootstrap)-->
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="save-btn" viewBox="0 0 16 16">
-          <path d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z"/>
-          <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-          </svg>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row" class="hourBlock" id="13">1pm</th>
-        <td colspan="21">
-          <form class="input-group">
-            <span class="input-group-text" id="13">Past</span>
-            <textarea class="text-area"></textarea>        
-          </form>
-        </td>
-        <td>
-          <!--save btn (calendar plus bootstrap)-->
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="save-btn" viewBox="0 0 16 16">
-          <path d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z"/>
-          <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-          </svg>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row" class="hourBlock" id="14">2pm</th>
-        <td colspan="21">
-          <form class="input-group">
-            <span class="input-group-text" id="14">Present</span>
-            <textarea class="text-area"></textarea>        
-          </form>
-        </td>
-        <td>
-          <!--save btn (calendar plus bootstrap)-->
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="save-btn" viewBox="0 0 16 16">
-          <path d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z"/>
-          <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-          </svg>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row" class="hourBlock" id="15">3pm</th>
-        <td colspan="21">
-          <form class="input-group">
-            <span class="input-group-text" id="15">Future</span>
-            <textarea class="text-area"></textarea>        
-          </form>
-        </td>
-        <td>
-          <!--save btn (calendar plus bootstrap)-->
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="save-btn" viewBox="0 0 16 16">
-          <path d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z"/>
-          <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-          </svg>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row" class = "hourBlock" id="16">4pm</th>
-        <td colspan="21">
-          <form class="input-group">
-            <span class="input-group-text" id="16">Future</span>
-            <textarea class="text-area"></textarea>        
-          </form>
-        </td>
-        <td>
-          <!--save btn (calendar plus bootstrap)-->
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="save-btn" viewBox="0 0 16 16">
-          <path d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z"/>
-          <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-          </svg>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row" class="hourBlock" id="17">5pm</th>
-        <td colspan="21">
-          <form class="input-group">
-            <span class="input-group-text" id="17">Future</span>
-            <textarea class="text-area"></textarea>        
-          </form>
-        </td>
-        <td>
-          <!--save btn (calendar plus bootstrap)-->
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="save-btn" viewBox="0 0 16 16">
-          <path d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z"/>
-          <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-          </svg>
-        </td>
-      </tr>
-    </tbody>
-   </div>
+            <td>
+              <!--save btn (calendar plus bootstrap)-->
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="save-btn"
+                data-time="10" viewBox="0 0 16 16">
+                <path
+                  d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z" />
+                <path
+                  d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+              </svg>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="hourBlock" id="11">11am</th>
+            <td colspan="21">
+              <form class="input-group">
+                <span class="input-group-text" id="11">Past</span>
+                <textarea class="text" id="text11"></textarea>
+              </form>
+            </td>
+            <td>
+              <!--save btn (calendar plus bootstrap)-->
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="save-btn"
+                data-time="11" viewBox="0 0 16 16">
+                <path
+                  d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z" />
+                <path
+                  d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+              </svg>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="hourBlock" id="12">12pm</th>
+            <td colspan="21">
+              <form class="input-group">
+                <span class="input-group-text" id="12">Past</span>
+                <textarea class="text" id="text12"></textarea>
+              </form>
+            </td>
+            <td>
+              <!--save btn (calendar plus bootstrap)-->
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="save-btn"
+                data-time="12" viewBox="0 0 16 16">
+                <path
+                  d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z" />
+                <path
+                  d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+              </svg>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="hourBlock" id="13">1pm</th>
+            <td colspan="21">
+              <form class="input-group">
+                <span class="input-group-text" id="13">Past</span>
+                <textarea class="text" id="text13"></textarea>
+              </form>
+            </td>
+            <td>
+              <!--save btn (calendar plus bootstrap)-->
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="save-btn"
+                data-time="13" viewBox="0 0 16 16">
+                <path
+                  d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z" />
+                <path
+                  d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+              </svg>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="hourBlock" id="14">2pm</th>
+            <td colspan="21">
+              <form class="input-group">
+                <span class="input-group-text" id="14">Present</span>
+                <textarea class="text" id="text14"></textarea>
+              </form>
+            </td>
+            <td>
+              <!--save btn (calendar plus bootstrap)-->
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="save-btn"
+                data-time="14" viewBox="0 0 16 16">
+                <path
+                  d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z" />
+                <path
+                  d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+              </svg>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="hourBlock" id="15">3pm</th>
+            <td colspan="21">
+              <form class="input-group">
+                <span class="input-group-text" id="15">Future</span>
+                <textarea class="text" id="text15"></textarea>
+              </form>
+            </td>
+            <td>
+              <!--save btn (calendar plus bootstrap)-->
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="save-btn"
+                data-time="15" viewBox="0 0 16 16">
+                <path
+                  d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z" />
+                <path
+                  d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+              </svg>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="hourBlock" id="16">4pm</th>
+            <td colspan="21">
+              <form class="input-group">
+                <span class="input-group-text" id="16">Future</span>
+                <textarea class="text" id="text16"></textarea>
+              </form>
+            </td>
+            <td>
+              <!--save btn (calendar plus bootstrap)-->
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="save-btn"
+                data-time="16" viewBox="0 0 16 16">
+                <path
+                  d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z" />
+                <path
+                  d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+              </svg>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="hourBlock" id="17">5pm</th>
+            <td colspan="21">
+              <form class="input-group">
+                <span class="input-group-text" id="17">Future</span>
+                <textarea class="text" id="text17"></textarea>
+              </form>
+            </td>
+            <td>
+              <!--save btn (calendar plus bootstrap)-->
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="save-btn"
+                data-time="17" viewBox="0 0 16 16">
+                <path
+                  d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z" />
+                <path
+                  d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+              </svg>
+            </td>
+          </tr>
+        </tbody>
+    </div>
   </div>
-    <!--jQuery link (note min)-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!--moment.js link (note min)-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <!--bootstrap (min and popper)-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <!--custom js script link-->
-    <script type="text/javascript" src="script.js"></script>
+  <!--jQuery link (note min)-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!--moment.js link (note min)-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <!--bootstrap (min and popper)-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <!--custom js script link-->
+  <script type="text/javascript" src="script.js"></script>
 
-  </body>
+</body>
+
 </html>
