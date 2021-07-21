@@ -16,9 +16,18 @@ body {
   border-bottom: 10px solid black;
 }
 
+#clear-btn {
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
 .text {
   background-color: white;
   width: 76%;
+  margin-left: 10px;
+  border-radius: 10px;
+  text-indent: 20px;
 }
 
 /* each row for each hour */
@@ -49,6 +58,7 @@ body {
   background-color: rgb(19, 7, 179);
   padding: 20px;
   color:white;
+  border-radius: 10px;
 }
 
 /* where user enters input into form */
@@ -57,6 +67,7 @@ body {
   font-family: 'Work Sans', sans-serif;
   border-radius: 0px;
   padding:20px;
+  border-radius: 10px;
 }
 
 .hourBlock {

@@ -1,7 +1,6 @@
 // custom script for daily planner, TWH, 6-19-21
 
 //global vars
-
 let saveBtn = $('.save-btn')
 
 // handles textareas and save btns
@@ -11,10 +10,10 @@ saveBtn.on("click", function (event) {
     let btnData = $(this).attr("data-time");
 
     // captures text
-    let textTarget = $("#text" + btnData);
+    let textField = $("#text" + btnData);
 
     // sets into local storage w/key = "id"
-    localStorage.setItem(textTarget.attr("id"), textTarget.val());
+    localStorage.setItem(textField.attr("id"), textField.val());
 });
 
 // first #text refers to HTML text area element; second #text refers to localStorage value
@@ -28,12 +27,11 @@ $("#text15").text(localStorage.getItem("text15"));
 $("#text16").text(localStorage.getItem("text16"));
 $("#text17").text(localStorage.getItem("text17"));
 
-// clear btn removes all text from local storage
-$("#clearBtn").on("click", function () {
+// clear btn removes all text from local storage and page's text areas
+$("#clear-btn").on("click", function () {
     localStorage.clear();
-    $(".description").text("");
+    $(".text").text("");
 });
-
 
 // displays today's date in the following format: Saturday, July 4th 2011, 6:30 (top of page)
 let today = moment();
